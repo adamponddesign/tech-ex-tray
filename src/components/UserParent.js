@@ -1,7 +1,7 @@
 import React from 'react'
 import UserBasicDetails from './UserBasicDetails'
-// import UserPrivacy from './UserPrivacy'
-// import Success from './Success'
+import UserPrivacy from './UserPrivacy'
+import Success from './Success'
 
 class UserParent extends React.Component {
 
@@ -15,12 +15,14 @@ class UserParent extends React.Component {
       email: '',
       password: '',
       receiveUpdates: false,
-      recieveComms: false
+      receiveComms: false
     }
 
     this.nextPage = this.nextPage.bind(this)
     this.prevPage = this.prevPage.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.toggleUpdates = this.toggleUpdates.bind(this)
+    this.toggleComms = this.toggleComms.bind(this)
 
   }
 
@@ -44,6 +46,17 @@ class UserParent extends React.Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
+  toggleUpdates() {
+    this.setState(prevState => ({
+      receiveUpdates: !prevState.receiveUpdates
+    }))
+  }
+
+  toggleComms() {
+    this.setState(prevState => ({
+      receiveComms: !prevState.receiveComms
+    }))
+  }
 
 
 
@@ -52,8 +65,10 @@ class UserParent extends React.Component {
 
   render() {
     console.log(this.state)
-    const { page, name, role, email, password, receiveUpdates, recieveComms } = this.state
-    const values = { page, name, role, email, password, receiveUpdates, recieveComms }
+
+
+    const { page, name, role, email, password, receiveUpdates, receiveComms } = this.state
+    const values = { name, role, email, password, receiveUpdates, receiveComms }
 
 
     switch (page) {
@@ -67,12 +82,21 @@ class UserParent extends React.Component {
         )
       case 2:
         return (
-          <h1>page 2</h1>
+          <UserPrivacy
+            nextPage={this.nextPage}
+            prevPage={this.prevPage}
+            handleChange={this.handleChange}
+            toggleUpdates={this.toggleUpdates}
+            toggleComms={this.toggleComms}
+            values={values}
+          />
         )
       case 3:
         return (
 
-          <h1>page 3</h1>
+          <Success
+            values={values}
+          />
 
         )
     }
@@ -80,29 +104,3 @@ class UserParent extends React.Component {
 }
 
 export default UserParent
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/*  // <UserPrivacy
-  //   nextPage={this.nextPage}
-  //   prevPage={this.prevPage}
-  //   handleChange={this.handleChange}
-  //   values={values}
-  // /> */}
