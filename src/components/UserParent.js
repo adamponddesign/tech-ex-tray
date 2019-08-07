@@ -15,7 +15,7 @@ class UserParent extends React.Component {
       email: '',
       password: '',
       receiveUpdates: false,
-      receiveComms: false
+      receiveComms: false      
     }
 
     this.nextPage = this.nextPage.bind(this)

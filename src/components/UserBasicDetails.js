@@ -12,6 +12,8 @@ class UserBasicDetails extends React.Component {
   continue(e) {
     e.preventDefault()
     this.props.nextPage()
+
+
   }
 
 
