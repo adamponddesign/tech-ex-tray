@@ -3,7 +3,30 @@ import UserBasicDetails from './UserBasicDetails'
 import UserPrivacy from './UserPrivacy'
 import Success from './Success'
 
+
+// email regex test
+const emailRegex = RegExp(
+  /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/
+)
+
+function validateName(name) {
+  let nameError = ''
+  if (name.length === 0) {
+    nameError = 'Name is required'
+  }
+  return nameError
+}
+
+function validateEmail(email) {
+  let emailError = ''
+  if (!emailRegex.test(email)) {
+    emailError = 'Please enter a valid email address'
+  }
+  return emailError
+}
+
 class UserParent extends React.Component {
+
 
   constructor() {
     super()
@@ -15,18 +38,52 @@ class UserParent extends React.Component {
       email: '',
       password: '',
       receiveUpdates: false,
-      receiveComms: false      
+      receiveComms: false,
+      nameError: '',
+      emailError: ''
     }
 
     this.nextPage = this.nextPage.bind(this)
     this.prevPage = this.prevPage.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.toggleUpdates = this.toggleUpdates.bind(this)
     this.toggleComms = this.toggleComms.bind(this)
 
   }
 
-  // move to next page
+  handleSubmit(e) {
+    e.preventDefault()
+
+    const { name, email, password } = this.state
+
+    const nameError = validateName(name)
+    const emailError = validateEmail(email)
+
+
+
+    if (nameError.length > 0) {
+      this.setState({ nameError })
+
+    }
+    if (emailError.length > 0) {
+      this.setState({ emailError })
+    }
+
+
+    if (nameError.length > 0 || emailError.length > 0 ) {
+      return
+    } else (
+
+      // if all form fields pass validation move onto next page
+      this.nextPage()
+
+    )
+
+
+  }
+
+  // move to next page function
   nextPage() {
     const { page } = this.state
     this.setState({
@@ -34,7 +91,7 @@ class UserParent extends React.Component {
     })
   }
 
-  // move to prev page
+  // move to prev page function
   prevPage() {
     const { page } = this.state
     this.setState({
@@ -67,8 +124,8 @@ class UserParent extends React.Component {
     console.log(this.state)
 
 
-    const { page, name, role, email, password, receiveUpdates, receiveComms } = this.state
-    const values = { name, role, email, password, receiveUpdates, receiveComms }
+    const { page, name, role, email, password, receiveUpdates, receiveComms, errors } = this.state
+    const values = { name, role, email, password, receiveUpdates, receiveComms, errors }
 
 
     switch (page) {
@@ -77,6 +134,7 @@ class UserParent extends React.Component {
           <UserBasicDetails
             nextPage={this.nextPage}
             handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
             values={values}
           />
         )

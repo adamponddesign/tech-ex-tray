@@ -6,20 +6,16 @@ class UserBasicDetails extends React.Component {
     super(props)
 
 
-    this.continue = this.continue.bind(this)
-  }
-
-  continue(e) {
-    e.preventDefault()
-    this.props.nextPage()
-
 
   }
+
+
 
 
 
   render() {
-    const { handleChange } = this.props
+    // console.log(this.props.values.errors)
+    const { handleChange, handleSubmit, values } = this.props
 
     return(
 
@@ -29,7 +25,7 @@ class UserBasicDetails extends React.Component {
 
         <h1>USER</h1>
 
-        <form onSubmit={this.continue} noValidate>
+        <form onSubmit={handleSubmit} noValidate>
 
           <div className="name">
             <label htmlFor="name">Name</label>
@@ -40,6 +36,7 @@ class UserBasicDetails extends React.Component {
               noValidate
               onChange={handleChange}
             />
+
           </div>
 
           <div className="role">
@@ -63,6 +60,7 @@ class UserBasicDetails extends React.Component {
               onChange={handleChange}
             />
           </div>
+
 
           <div className="password">
             <label htmlFor="password">Password</label>
