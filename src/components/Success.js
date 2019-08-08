@@ -2,7 +2,6 @@ import React from 'react'
 
 
 const Success = (props) => {
-  // console.log(props.values)
   console.log(JSON.stringify(props.values))
   return (
     <div>

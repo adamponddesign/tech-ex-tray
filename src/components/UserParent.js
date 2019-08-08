@@ -5,33 +5,11 @@ import Success from './Success'
 
 
 // email regex test
-const emailRegex = RegExp(
-  /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/
-)
+const emailRegex = RegExp( /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/ )
 
-function validateName(name) {
-  let nameError = ''
-  if (name.length === 0) {
-    nameError = 'Name is required'
-  }
-  return nameError
-}
+// password regex test
+const passwordRegex = RegExp( /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{10,}$/ )
 
-function validateEmail(email) {
-  let emailError = ''
-  if (!emailRegex.test(email)) {
-    emailError = 'Please enter a valid email address'
-  }
-  return emailError
-}
-
-function validatePassword(password) {
-  let passwordError = ''
-  if (password.length < 3) {
-    passwordError = 'Please enter a valid password'
-  }
-  return passwordError
-}
 
 class UserParent extends React.Component {
 
@@ -58,17 +36,82 @@ class UserParent extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.toggleUpdates = this.toggleUpdates.bind(this)
     this.toggleComms = this.toggleComms.bind(this)
+    this.validateName = this.validateName.bind(this)
+    this.validateEmail = this.validateEmail.bind(this)
+    this.validatePassword = this.validatePassword.bind(this)
 
   }
+
+  //••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+  validateName(name) {
+    let nameError = ''
+    if (name.length === 0) {
+      nameError = 'Name is required'
+    }
+    return nameError
+  }
+
+  validateEmail(email) {
+    let emailError = ''
+    if (!emailRegex.test(email)) {
+      emailError = 'Please enter a valid email address'
+    }
+    return emailError
+  }
+
+
+  validatePassword(password) {
+    console.log(!passwordRegex.test(password))
+    let passwordError = ''
+    if (!passwordRegex.test(password)) {
+      passwordError = 'Please enter a valid password - must be more than 9 characters long, have at least one number, one uppercase character and one lowercase character'
+    }
+    return passwordError
+  }
+  //••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
+  // move to next page function
+  nextPage() {
+    const { page } = this.state
+    this.setState({
+      page: page + 1,
+      emailError: '',
+      nameError: '',
+      passwordError: ''
+
+    })
+  }
+
+  // move to prev page function
+  prevPage() {
+    const { page } = this.state
+    this.setState({
+      page: page - 1
+    })
+  }
+
+  // toggle check boxes on privacy page •••••••••••••••••••••••••••••••
+  toggleUpdates() {
+    this.setState(prevState => ({
+      receiveUpdates: !prevState.receiveUpdates
+    }))
+  }
+
+  toggleComms() {
+    this.setState(prevState => ({
+      receiveComms: !prevState.receiveComms
+    }))
+  }
+  // ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
   handleSubmit(e) {
     e.preventDefault()
 
     const { name, email, password } = this.state
 
-    const nameError = validateName(name)
-    const emailError = validateEmail(email)
-    const passwordError = validatePassword(password)
+    const nameError = this.validateName(name)
+    const emailError = this.validateEmail(email)
+    const passwordError = this.validatePassword(password)
 
 
 
@@ -98,56 +141,17 @@ class UserParent extends React.Component {
 
       // if all form fields pass validation move onto next page
       this.nextPage()
-
     )
-
-
-
   }
 
-  // move to next page function
-  nextPage() {
-    const { page } = this.state
-    this.setState({
-      page: page + 1,
-      emailError: '',
-      nameError: '',
-      passwordError: ''
-
-    })
-  }
-
-  // move to prev page function
-  prevPage() {
-    const { page } = this.state
-    this.setState({
-      page: page - 1
-    })
-  }
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  toggleUpdates() {
-    this.setState(prevState => ({
-      receiveUpdates: !prevState.receiveUpdates
-    }))
-  }
-
-  toggleComms() {
-    this.setState(prevState => ({
-      receiveComms: !prevState.receiveComms
-    }))
-  }
-
-
-
-
-
 
   render() {
-    console.log(this.state)
+    console.log('parent rendered', this.state)
 
 
     const { page, name, role, email, password, receiveUpdates, receiveComms, nameError, emailError, passwordError } = this.state
