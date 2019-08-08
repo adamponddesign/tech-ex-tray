@@ -35,8 +35,9 @@ class UserBasicDetails extends React.Component {
               name="name"
               noValidate
               onChange={handleChange}
+              value={values.name}
             />
-
+            {values.nameError && <div>{values.nameError}</div>}
           </div>
 
           <div className="role">
@@ -47,6 +48,7 @@ class UserBasicDetails extends React.Component {
               name="role"
               noValidate
               onChange={handleChange}
+              value={values.role}
             />
           </div>
 
@@ -58,7 +60,9 @@ class UserBasicDetails extends React.Component {
               name="email"
               noValidate
               onChange={handleChange}
+              value={values.email}
             />
+            {values.emailError && <div>{values.emailError}</div>}
           </div>
 
 
@@ -70,7 +74,9 @@ class UserBasicDetails extends React.Component {
               name="password"
               noValidate
               onChange={handleChange}
+              value={values.password}
             />
+            {values.passwordError && <div>{values.passwordError}</div>}
           </div>
 
 

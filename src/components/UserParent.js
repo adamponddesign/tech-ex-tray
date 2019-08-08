@@ -25,6 +25,14 @@ function validateEmail(email) {
   return emailError
 }
 
+function validatePassword(password) {
+  let passwordError = ''
+  if (password.length < 3) {
+    passwordError = 'Please enter a valid password'
+  }
+  return passwordError
+}
+
 class UserParent extends React.Component {
 
 
@@ -40,7 +48,8 @@ class UserParent extends React.Component {
       receiveUpdates: false,
       receiveComms: false,
       nameError: '',
-      emailError: ''
+      emailError: '',
+      passwordError: ''
     }
 
     this.nextPage = this.nextPage.bind(this)
@@ -59,19 +68,31 @@ class UserParent extends React.Component {
 
     const nameError = validateName(name)
     const emailError = validateEmail(email)
+    const passwordError = validatePassword(password)
 
 
 
     if (nameError.length > 0) {
       this.setState({ nameError })
-
+    } else {
+      this.setState({ nameError: '' })
     }
+
+
     if (emailError.length > 0) {
       this.setState({ emailError })
+    } else {
+      this.setState({ emailError: '' })
+    }
+
+    if (passwordError.length > 0) {
+      this.setState({ passwordError })
+    } else {
+      this.setState({ passwordError: '' })
     }
 
 
-    if (nameError.length > 0 || emailError.length > 0 ) {
+    if (nameError.length > 0 || emailError.length > 0 || passwordError.length > 0 ) {
       return
     } else (
 
@@ -81,13 +102,18 @@ class UserParent extends React.Component {
     )
 
 
+
   }
 
   // move to next page function
   nextPage() {
     const { page } = this.state
     this.setState({
-      page: page + 1
+      page: page + 1,
+      emailError: '',
+      nameError: '',
+      passwordError: ''
+
     })
   }
 
@@ -124,8 +150,8 @@ class UserParent extends React.Component {
     console.log(this.state)
 
 
-    const { page, name, role, email, password, receiveUpdates, receiveComms, errors } = this.state
-    const values = { name, role, email, password, receiveUpdates, receiveComms, errors }
+    const { page, name, role, email, password, receiveUpdates, receiveComms, nameError, emailError, passwordError } = this.state
+    const values = { name, role, email, password, receiveUpdates, receiveComms, nameError, emailError, passwordError }
 
 
     switch (page) {
@@ -146,6 +172,7 @@ class UserParent extends React.Component {
             handleChange={this.handleChange}
             toggleUpdates={this.toggleUpdates}
             toggleComms={this.toggleComms}
+            handleSubmit={this.handleSubmit}
             values={values}
           />
         )

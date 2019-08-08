@@ -6,24 +6,17 @@ class UserPrivacy extends React.Component {
     super(props)
 
 
-    this.continue = this.continue.bind(this)
-    this.back = this.back.bind(this)
+
+
   }
 
-  continue(e) {
-    e.preventDefault()
-    this.props.nextPage()
-  }
 
-  back(e) {
-    e.preventDefault()
-    this.props.prevPage()
-  }
+
 
 
 
   render() {
-    const { toggleUpdates, toggleComms } = this.props
+    const { toggleUpdates, toggleComms, handleSubmit, prevPage, values } = this.props
 
     return(
 
@@ -33,7 +26,7 @@ class UserPrivacy extends React.Component {
 
         <h1>Privacy</h1>
 
-        <form onSubmit={this.continue} noValidate>
+        <form onSubmit={handleSubmit} noValidate>
 
           <div>
             <input
@@ -41,6 +34,7 @@ class UserPrivacy extends React.Component {
               name="receiveUpdates"
               noValidate
               onChange={toggleUpdates}
+              checked={values.receiveUpdates}
             />
             <label htmlFor="recUpdates">Receive updates about tray.io products by email</label>
           </div>
@@ -51,6 +45,7 @@ class UserPrivacy extends React.Component {
               name="receiveComms"
               noValidate
               onChange={toggleComms}
+              checked={values.receiveComms}
             />
             <label htmlFor="recUpdates">Receive communication by email for other products created by the tray.io team</label>
           </div>
@@ -63,18 +58,21 @@ class UserPrivacy extends React.Component {
 
 
 
-
-
-
           <div className="createAccount">
-            <button type="submit">Submit</button>
+            <button
+              type="button"
+              onClick={prevPage}
+            >Go Back</button>
           </div>
+
+
 
           <div className="createAccount">
             <button
-              onClick={this.back}
-            >Go Back</button>
+              type="submit"
+            >Submit</button>
           </div>
+
         </form>
 
 
