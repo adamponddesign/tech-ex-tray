@@ -57,7 +57,6 @@ class UserParent extends React.Component {
   }
 
   validatePassword(password) {
-    console.log(!passwordRegex.test(password))
     let passwordError = ''
     if (!passwordRegex.test(password)) {
       passwordError = 'Please enter a valid password - must be more than 9 characters long, have at least one number, one uppercase character and one lowercase character'

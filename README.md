@@ -3,4 +3,4 @@
 
 A simple data collection app built using React.js
 
-View the App:  [After Midnight](http://after-midnight.herokuapp.com)
+View the App:  [https://adamponddesign.github.io/tech-ex-tray/](https://adamponddesign.github.io/tech-ex-tray/)

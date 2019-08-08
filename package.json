@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "webpack-dev-server --mode=development",
     "predeploy": "yarn run build",
-    "build": "wepback -p",
+    "build": "webpack -p",
     "deploy": "yarn build && gh-pages -d dist"
   },
   "dependencies": {
