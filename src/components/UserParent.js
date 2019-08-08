@@ -3,16 +3,13 @@ import UserBasicDetails from './UserBasicDetails'
 import UserPrivacy from './UserPrivacy'
 import Success from './Success'
 
-
 // email regex test
 const emailRegex = RegExp( /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/ )
-
 // password regex test
 const passwordRegex = RegExp( /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{10,}$/ )
 
 
 class UserParent extends React.Component {
-
 
   constructor() {
     super()
@@ -42,7 +39,7 @@ class UserParent extends React.Component {
 
   }
 
-  //••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+  // validation functions ••••••••••••••••••••••••••••••••••••••••••••••••••••••••
   validateName(name) {
     let nameError = ''
     if (name.length === 0) {
@@ -59,7 +56,6 @@ class UserParent extends React.Component {
     return emailError
   }
 
-
   validatePassword(password) {
     console.log(!passwordRegex.test(password))
     let passwordError = ''
@@ -68,7 +64,7 @@ class UserParent extends React.Component {
     }
     return passwordError
   }
-  //••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+  // ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
   // move to next page function
   nextPage() {
@@ -151,12 +147,9 @@ class UserParent extends React.Component {
 
 
   render() {
-    console.log('parent rendered', this.state)
-
 
     const { page, name, role, email, password, receiveUpdates, receiveComms, nameError, emailError, passwordError } = this.state
     const values = { name, role, email, password, receiveUpdates, receiveComms, nameError, emailError, passwordError }
-
 
     switch (page) {
       case 1:
@@ -182,7 +175,6 @@ class UserParent extends React.Component {
         )
       case 3:
         return (
-
           <Success
             values={values}
           />
