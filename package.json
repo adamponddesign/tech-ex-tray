@@ -2,12 +2,14 @@
   "name": "tech-ex-tray",
   "version": "1.0.0",
   "main": "index.js",
+  "homepage": "https://adamponddesign.github.io/tech-ex-tray/",
   "repository": "git@github.com:adamponddesign/tech-ex-tray.git",
   "author": "Adam Pond <adam.pond@hotmail.co.uk>",
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "webpack-dev-server --mode=development",
+    "predeploy": "yarn run build",
     "build": "wepback -p",
     "deploy": "yarn build && gh-pages -d dist"
   },
