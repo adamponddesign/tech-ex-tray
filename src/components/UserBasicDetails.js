@@ -16,7 +16,7 @@ const UserBasicDetails = (props) => {
 
         <form className="active-form" onSubmit={handleSubmit} noValidate>
           <div className="form-field">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Name:*</label>
             <input
               placeholder="Enter your full name"
               type="text"
@@ -41,7 +41,7 @@ const UserBasicDetails = (props) => {
           </div>
 
           <div className="form-field">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">Email:*</label>
             <input
               placeholder="Enter your email address"
               type="email"
@@ -54,7 +54,7 @@ const UserBasicDetails = (props) => {
           </div>
 
           <div className="form-field">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Password:*</label>
             <input
               placeholder="Enter a password"
               type="password"
