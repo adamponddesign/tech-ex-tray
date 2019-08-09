@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+require.context('../images', true, /\.svg$/)
 
 import './style.scss'
 
@@ -13,7 +14,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <img id="logo" src="./tray-logo-white.svg" alt="Soul Ponies Logo" />
+        <img id="logo" src="./tray-logo-white.svg" alt="Tray Logo" />
         <UserParent />
       </div>
 
