@@ -1,23 +1,36 @@
-/* global describe, it */
-/* eslint-disable no-undef */
-
-const expect = chai.expect
-
-// describe: The description of the tests that are about to be run. It is useful for grouping tests together.
-// will be displayed above the test results
-
-describe('Feet and Inches to CM tests', () => {
-
-
-  // it: describes a single test. it generally begins a sentence: "it should be red", "it should be an object", etc.
-  it('should return a number', done => {
-
-
-    //expect: This is the actual test. Basically we are saying "I expect A to be B".
-    expect(ftAndInchesToCm(5, 10)).to.be.a('number')
-
-    //done: The done method tells mocha that this specific test is over, and it's time to move on to the next test. This is particularly useful if we need to test something asynchronously, eg a HTTP request or anything that takes a good amount of time.
-    done()
-  })
-  
-})
+// /* eslint-disable no-undef */
+//
+// const expect = chai.expect // expect function from 'chai'
+//
+// // `describe` block used to describe a group of Tests (large heading text)
+// describe('Feet & inches to cm', () => {
+//
+//
+//   // `it` block describes a single test (small text beneath large heading)
+//   it('should return text', done => {
+//
+//     // the actual test
+//     expect(ftAndInchesToCm(5, 10)).to.be.a('number')
+//     done()
+//   })
+//
+//
+// 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//   // it('should convert ft and inches to cm', done => {
+//   //   expect(ftAndInchesToCm(5, 10)).to.eq(178)
+//   //   expect(ftAndInchesToCm(4, 8)).to.eq(142)
+//   //   expect(ftAndInchesToCm(6, 2)).to.eq(188)
+//   //   done()
+//   // })
+// })
