@@ -109,16 +109,18 @@ class UserParent extends React.Component {
     e.preventDefault()
 
     const { name, email, password } = this.state
-
+    // use validate functions to check if any errors
+    // set result to variable
     const nameError = this.validateName(name)
     const emailError = this.validateEmail(email)
     const passwordError = this.validatePassword(password)
 
 
-
+    // if variable contains an error, set the error to state
     if (nameError.length > 0) {
       this.setState({ nameError })
     } else {
+    // or if it doesn't contain an error, reset the state to an empty string
       this.setState({ nameError: '' })
     }
 
