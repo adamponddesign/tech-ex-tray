@@ -144,8 +144,9 @@ label.checkbox-label {
   margin: 20px;
 }
 
-input[type=checkbox] {
-    -webkit-transform: scale(1.5,1.5);
+input.checkbox {
+    min-height: 13px;
+    min-width: 13px;
 }
 
 // •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
