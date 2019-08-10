@@ -144,9 +144,11 @@ label.checkbox-label {
   margin: 20px;
 }
 
-input.checkbox {
-    min-height: 13px;
-    // min-width: 13px;
+input[type=checkbox] {
+    height: 15px;
+    min-height: 15px;
+    min-width: 15px;
+    width: 15px;
 }
 
 // •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
