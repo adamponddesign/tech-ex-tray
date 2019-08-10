@@ -144,6 +144,10 @@ label.checkbox-label {
   margin: 20px;
 }
 
+input[type=checkbox] {
+    -webkit-transform: scale(1.5,1.5);
+}
+
 // •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 // Success page styling ••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 .success-container {

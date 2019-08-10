@@ -155,7 +155,7 @@ class UserParent extends React.Component {
 
 
   render() {
-
+    console.log(this.state)
     const { page, name, role, email, password, receiveUpdates, receiveComms, nameError, emailError, passwordError } = this.state
     const values = { name, role, email, password, receiveUpdates, receiveComms, nameError, emailError, passwordError }
 

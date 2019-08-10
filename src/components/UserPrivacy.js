@@ -18,7 +18,6 @@ const UserPrivacy = (props) => {
           <div className="checkbox-area">
             <input
               type="checkbox"
-              name="receiveUpdates"
               noValidate
               onChange={toggleUpdates}
               checked={values.receiveUpdates}
@@ -31,7 +30,6 @@ const UserPrivacy = (props) => {
           <div className="checkbox-area">
             <input
               type="checkbox"
-              name="receiveComms"
               noValidate
               onChange={toggleComms}
               checked={values.receiveComms}
