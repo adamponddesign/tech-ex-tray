@@ -16,7 +16,7 @@ const Success = (props) => {
         </div>
 
         <div className="active-form success-container">
-          <img id="tick" src="https://i.imgur.com/papjooT.png" alt="Green Tick" height="100" width="100" />
+          <img id="tick" src="https://i.imgur.com/papjooT.png" alt="Green Tick" />
           <p id="success-text">Please verify your email address, you should have received an email from us already!</p>
         </div>
       </div>

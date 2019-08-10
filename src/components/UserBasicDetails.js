@@ -18,6 +18,7 @@ const UserBasicDetails = (props) => {
           <div className="form-field">
             <label htmlFor="name">Name:*</label>
             <input
+              className={values.nameError ? 'error' : ''}
               placeholder="Enter your full name"
               type="text"
               name="name"
@@ -43,6 +44,7 @@ const UserBasicDetails = (props) => {
           <div className="form-field">
             <label htmlFor="email">Email:*</label>
             <input
+              className={values.emailError ? 'error' : ''}
               placeholder="Enter your email address"
               type="email"
               name="email"
@@ -56,6 +58,7 @@ const UserBasicDetails = (props) => {
           <div className="form-field">
             <label htmlFor="password">Password:*</label>
             <input
+              className={values.passwordError ? 'error' : ''}
               placeholder="Enter a password"
               type="password"
               name="password"

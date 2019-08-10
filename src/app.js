@@ -1,14 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-// require.context('../images', true, /\.svg$/)
 
 import './style.scss'
 
 import UserParent from './components/UserParent'
-
-// function ftAndInchesToCm(feet, inches) {
-//   return 2
-// }
 
 class App extends React.Component {
   render() {

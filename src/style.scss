@@ -16,6 +16,7 @@ html {
 // logo ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 #logo {
   width: 200px;
+  margin-bottom: 20px;
 }
 
 // tabs styling ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
@@ -39,7 +40,7 @@ div.header-bar * {
 .active-form {
   border: 3px solid $col3;
   border-radius: 5px;
-  height: 100%;
+  // height: 90vh;
 }
 
 #success-tab {
@@ -49,20 +50,19 @@ div.header-bar * {
 //••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 // page 1 form styling •••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 .wrapper {
-  height: 90vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
 }
 
 .form-wrapper {
   width: 600px;
-  min-height: 630px;
   display: flex;
   flex-direction: column;
-  padding: 40px 40px;
+  padding: 30px;
   border-radius: 30px;
   background-color: #fafafa;
 }
@@ -72,7 +72,7 @@ form {
 }
 
 .form-field label {
-  margin: 20px 0px 8px 0px;
+  margin: 10px 0px 8px 0px;
 }
 
 .form-field input {
@@ -97,6 +97,10 @@ form {
   padding-left: 10px;
 }
 
+input.error {
+  border: 2px solid red;
+}
+
 // •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
 
@@ -106,9 +110,9 @@ form {
   color: #fff;
   border-radius: 6px;
   width: 40%;
-  margin-top: 1em;
+  margin-top: 8px;
   float: right;
-  padding: 8px 0px;
+  padding: 5px 0px;
   font-family: inherit;
   font-size: inherit;
 }
@@ -119,8 +123,8 @@ form {
   color: #fff;
   border-radius: 6px;
   width: 40%;
-  margin-top: 1em;
-  padding: 8px 0px;
+  margin-top: 8px;
+  padding: 5px 0px;
   font-family: inherit;
   font-size: inherit;
 }
@@ -142,8 +146,8 @@ label.checkbox-label {
 // •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 // Success page styling ••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 .success-container {
-  padding-left: 17px;
-  padding-top: 23%;
+  // padding-left: 17px;
+  // padding-top: 23%;
   border: 3px solid $col1;
   border-radius: 5px;
   height: 100%;
@@ -151,11 +155,84 @@ label.checkbox-label {
 
 #tick {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  // margin-left: auto;
+  // margin-right: auto;
+  margin: 30px auto 0 auto;
+  width: 100px;
+  height: 100px;
 }
 
 #success-text {
   color: $col1;
+  padding: 20px;
+  margin: 0;
 }
 // •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
+// media queries •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
+
+
+// Device = Tablets, Ipads (portrait) // Screen = B/w 768px to 1024px
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  //CSS
+
+}
+
+// Device = Tablets, Ipads (landscape) // Screen = B/w 768px to 1024px
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+  //CSS
+
+}
+
+// Device = Low Resolution Tablets, Mobiles (Landscape) // Screen = B/w 481px to 767px
+@media (min-width: 481px) and (max-width: 767px) {
+
+  .form-wrapper {
+    width: 90vw;
+    padding: 20px 20px;
+  }
+
+
+}
+
+// Device = Most of the Smartphones Mobiles (Portrait) // Screen = B/w 320px to 479px
+@media (min-width: 320px) and (max-width: 480px) {
+
+  #logo {
+    width: 150px;
+    margin-bottom: 10px;
+  }
+
+  div.header-bar * {
+    padding: 9px;
+  }
+
+  .form-wrapper {
+    width: 90vw;
+    // min-height: 80vh;
+    padding: 20px 20px;
+  }
+
+  .form-field label {
+    margin: 5px 0px 8px 0px;
+  }
+
+  .form-field input {
+    padding: 6px 6px;
+  }
+
+  #tick {
+    width: 60px;
+    height: 60px;
+  }
+
+  label.checkbox-label {
+    display: inline-block;
+    margin: 10px 5px 10px 5px;
+  }
+
+
+}

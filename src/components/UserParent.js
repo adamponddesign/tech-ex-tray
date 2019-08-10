@@ -9,6 +9,7 @@ const emailRegex = RegExp( /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/ )
 const passwordRegex = RegExp( /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{10,}$/ )
 
 
+
 class UserParent extends React.Component {
 
   constructor() {
