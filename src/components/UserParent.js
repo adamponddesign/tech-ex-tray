@@ -36,7 +36,7 @@ class UserParent extends React.Component {
     this.validateName = this.validateName.bind(this)
     this.validateEmail = this.validateEmail.bind(this)
     this.validatePassword = this.validatePassword.bind(this)
-  
+
 
 
   }
@@ -158,7 +158,6 @@ class UserParent extends React.Component {
 
 
   render() {
-    console.log(this.state)
     const { page, name, role, email, password, receiveUpdates, receiveComms, nameError, emailError, passwordError } = this.state
     const values = { name, role, email, password, receiveUpdates, receiveComms, nameError, emailError, passwordError }
 
