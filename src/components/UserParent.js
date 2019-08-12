@@ -9,7 +9,6 @@ const emailRegex = RegExp( /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/ )
 const passwordRegex = RegExp( /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{10,}$/ )
 
 
-
 class UserParent extends React.Component {
 
   constructor() {
@@ -37,13 +36,17 @@ class UserParent extends React.Component {
     this.validateName = this.validateName.bind(this)
     this.validateEmail = this.validateEmail.bind(this)
     this.validatePassword = this.validatePassword.bind(this)
+  
 
 
   }
 
 
 
-
+  // jest test function
+  add(x ,y) {
+    return x + y
+  }
 
 
   // validation functions ••••••••••••••••••••••••••••••••••••••••••••••••••••••••
