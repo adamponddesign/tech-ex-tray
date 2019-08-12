@@ -36,16 +36,6 @@ class UserParent extends React.Component {
     this.validateName = this.validateName.bind(this)
     this.validateEmail = this.validateEmail.bind(this)
     this.validatePassword = this.validatePassword.bind(this)
-
-
-
-  }
-
-
-
-  // jest test function
-  add(x ,y) {
-    return x + y
   }
 
 
@@ -75,7 +65,7 @@ class UserParent extends React.Component {
   }
   // ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
-  // move to next page function
+  // move to next page function (only applied once all validations cleared)
   nextPage() {
     const { page } = this.state
     this.setState({
@@ -145,7 +135,6 @@ class UserParent extends React.Component {
     if (nameError.length > 0 || emailError.length > 0 || passwordError.length > 0 ) {
       return
     } else (
-
       // if all form fields pass validation move onto next page
       this.nextPage()
     )
@@ -158,9 +147,30 @@ class UserParent extends React.Component {
 
 
   render() {
-    const { page, name, role, email, password, receiveUpdates, receiveComms, nameError, emailError, passwordError } = this.state
-    const values = { name, role, email, password, receiveUpdates, receiveComms, nameError, emailError, passwordError }
+    const {
+      page,
+      name,
+      role,
+      email,
+      password,
+      receiveUpdates,
+      receiveComms,
+      nameError,
+      emailError,
+      passwordError
+    } = this.state
 
+    const values = {
+      name,
+      role,
+      email,
+      password,
+      receiveUpdates,
+      receiveComms,
+      nameError,
+      emailError,
+      passwordError
+    }
 
 
     switch (page) {
